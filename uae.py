@@ -268,7 +268,7 @@ def is_valid_whatsapp_message(body):
 
 def validate_signature(payload, signature):
     expected_signature = hmac.new(
-        bytes("d8273c13f5b8209eb98a57e667bccf50", "latin-1"),
+        bytes("d67dc325c581095e0bcc847abd1ae9f5", "latin-1"),
         msg=payload.encode("utf-8"),
         digestmod=hashlib.sha256,
     ).hexdigest()
@@ -283,10 +283,6 @@ def signature_required(f):
             return jsonify({"status": "error", "message": "Invalid signature"}), 403
         return f(*args, **kwargs)
     return decorated_function
-
-
-
-
 
 # Views
 
