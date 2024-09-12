@@ -344,8 +344,8 @@ def run_ngrok():
     try:
         subprocess.run([
             "ngrok", "http",
-            "--authtoken=cr_2lWKjuvBztMCJ1gUttC1aClknWF",
-            "--domain=primary-skink-elegant.ngrok-free.app",
+            "--authtoken=2lyiq8tsTrkmT5vQ4Xv2OiBT5O2_5JpQbBSgnc9mmq4Htoxid",
+            "--domain=glad-loyal-bluejay.ngrok-free.app",
             "8006"
         ], check=True)
     except subprocess.CalledProcessError as e:
