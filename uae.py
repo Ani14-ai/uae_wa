@@ -54,7 +54,7 @@ def log_chat_to_db(user_input, bot_response, phone_number):
 
             # Insert chat record into tbWhatsAppChat_UAE
             insert_message_query = """
-                INSERT INTO tbWhatsAppChat(user_input, bot_response, user_id)
+                INSERT INTO tbWhatsAppChat_UAE(user_input, bot_response, user_id)
                 VALUES (?, ?, ?)
             """
             cursor.execute(insert_message_query, (user_input, bot_response, user_id))
@@ -309,8 +309,6 @@ def webhook_post():
     logging.info(f"Webhook 1 received request: {body}")
 
     business_phone_number_id = body.get("entry", [{}])[0].get("changes", [{}])[0].get("value", {}).get("metadata", {}).get("phone_number_id")
-
-    # Check if the phone_number_id matches the specific one (replace 'your_phone_number_id_1' with the actual ID)
     if business_phone_number_id == PHONE_NUMBER_ID_1:
         if (body.get("entry", [{}])[0]
             .get("changes", [{}])[0]
